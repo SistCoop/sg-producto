@@ -4,18 +4,25 @@
 
     module.provider('sgProducto', function() {
 
-        var config = {};
-        config.restUrl = 'http://localhost:3000';
+        this.restUrl = 'http://localhost';
 
         this.$get = function() {
-            return config;
+            var restUrl = this.restUrl;
+            return {
+                getRestUrl: function() {
+                    return restUrl;
+                }
+            }
         };
 
+        this.setRestUrl = function(restUrl) {
+            this.restUrl = restUrl;
+        };
     });
 
     module.factory('ProductoRestangular', ['Restangular', 'sgProducto', function(Restangular, sgProducto) {
         return Restangular.withConfig(function(RestangularConfigurer) {
-            RestangularConfigurer.setBaseUrl(sgProducto.restUrl);
+            RestangularConfigurer.setBaseUrl(sgProducto.getRestUrl());
         });
     }]);
 
