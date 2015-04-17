@@ -1,9 +1,6 @@
-/**
- * Restful factories for producto
- * @version v1.0.2 - 2015-03-25 * @link https://github.com/SistCoop/sg-producto
- * @author Carlos feria <carlosthe19916@gmail.com>
- * @license MIT License, http://www.opensource.org/licenses/MIT
- */(function(){
+'use strict';
+
+(function(){
 
     var module = angular.module('sg-producto', ['restangular']);
 
