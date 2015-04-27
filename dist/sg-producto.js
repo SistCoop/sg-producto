@@ -92,7 +92,7 @@
                 return ProductoRestangular.all(url+'/'+this.id+'/disable').post();
             },
             $remove: function(id){
-                return ProductoRestangular.one(urlAlpha3Code, id).remove();
+                return ProductoRestangular.one(url, id).remove();
             }
         };
 
