@@ -149,6 +149,9 @@
 
             $addCaracteristica: function(obj) {
                 return ProductoRestangular.all(url + '/' + this.id + '/caracteristicas').post(obj);
+            },
+            $getCaracteristicas: function(){
+                return ProductoRestangular.all(url + '/' + this.id + '/caracteristicas').getList();
             }
         };
 
