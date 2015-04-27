@@ -59,6 +59,7 @@
     module.factory('SGProductoCuentaPersonal', ['ProductoRestangular',  function(ProductoRestangular) {
 
         var url = 'cuentasPersonales';
+        var urlCount = url + '/count';
 
         var modelMethos = {
             $new: function(id){
@@ -70,7 +71,7 @@
                 }});
             },
             $save: function() {
-                return ProductoRestangular.one(id, this.id).customPUT(ProductoRestangular.copy(this),'',{},{});
+                return ProductoRestangular.one(url, this.id).customPUT(ProductoRestangular.copy(this),'',{},{});
             },
 
 
@@ -96,7 +97,11 @@
         };
 
         ProductoRestangular.extendModel(url, function(obj) {
-            return angular.extend(obj, modelMethos);
+            if(angular.isObject(obj)) {
+                return angular.extend(obj, modelMethos);
+            } else {
+                return angular.extend({id: obj}, modelMethos)
+            }
         });
 
         return modelMethos;
@@ -106,6 +111,7 @@
     module.factory('SGProductoCredito', ['ProductoRestangular',  function(ProductoRestangular) {
 
         var url = 'creditos';
+        var urlCount = url + '/count';
 
         var modelMethos = {
             $new: function(id){
@@ -117,7 +123,7 @@
                 }});
             },
             $save: function() {
-                return ProductoRestangular.one(id, this.id).customPUT(ProductoRestangular.copy(this),'',{},{});
+                return ProductoRestangular.one(url, this.id).customPUT(ProductoRestangular.copy(this),'',{},{});
             },
 
 
@@ -138,12 +144,16 @@
                 return ProductoRestangular.all(url+'/'+this.id+'/disable').post();
             },
             $remove: function(id){
-                return ProductoRestangular.one(urlAlpha3Code, id).remove();
+                return ProductoRestangular.one(url, id).remove();
             }
         };
 
         ProductoRestangular.extendModel(url, function(obj) {
-            return angular.extend(obj, modelMethos);
+            if(angular.isObject(obj)) {
+                return angular.extend(obj, modelMethos);
+            } else {
+                return angular.extend({id: obj}, modelMethos)
+            }
         });
 
         return modelMethos;
