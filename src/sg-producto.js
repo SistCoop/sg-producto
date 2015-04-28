@@ -95,6 +95,12 @@
                 return ProductoRestangular.one(url, id).remove();
             },
 
+            $addTasa: function(obj) {
+                return ProductoRestangular.all(url + '/' + this.id + '/tasas').post(obj);
+            },
+            $getTasas: function(){
+                return ProductoRestangular.all(url + '/' + this.id + '/tasas').getList();
+            },
             $addCaracteristica: function(obj) {
                 return ProductoRestangular.all(url + '/' + this.id + '/caracteristicas').post(obj);
             },
@@ -154,6 +160,12 @@
                 return ProductoRestangular.one(url, id).remove();
             },
 
+            $addTasa: function(obj) {
+                return ProductoRestangular.all(url + '/' + this.id + '/tasas').post(obj);
+            },
+            $getTasas: function(){
+                return ProductoRestangular.all(url + '/' + this.id + '/tasas').getList();
+            },
             $addCaracteristica: function(obj) {
                 return ProductoRestangular.all(url + '/' + this.id + '/caracteristicas').post(obj);
             },
