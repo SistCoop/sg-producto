@@ -336,4 +336,32 @@
 
     }]);
 
+    module.factory('SGTipoValor', ['ProductoRestangular',  function(ProductoRestangular) {
+
+        var url = 'tipoValores';
+
+        var modelMethos = {
+            $search: function(queryParams){
+                return ProductoRestangular.all(url).getList(queryParams);
+            }
+        };
+
+        return modelMethos;
+
+    }]);
+
+    module.factory('SGFrecuencia', ['ProductoRestangular',  function(ProductoRestangular) {
+
+        var url = 'frecuencias';
+
+        var modelMethos = {
+            $search: function(queryParams){
+                return ProductoRestangular.all(url).getList(queryParams);
+            }
+        };
+
+        return modelMethos;
+
+    }]);
+
 })();
