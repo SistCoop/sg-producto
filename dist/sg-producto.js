@@ -106,6 +106,12 @@
             },
             $getCaracteristicas: function(){
                 return ProductoRestangular.all(url + '/' + this.id + '/caracteristicas').getList();
+            },
+            $addComision: function(obj) {
+                return ProductoRestangular.all(url + '/' + this.id + '/comisiones').post(obj);
+            },
+            $getComisiones: function(){
+                return ProductoRestangular.all(url + '/' + this.id + '/comisiones').getList();
             }
         };
 
@@ -171,6 +177,12 @@
             },
             $getCaracteristicas: function(){
                 return ProductoRestangular.all(url + '/' + this.id + '/caracteristicas').getList();
+            },
+            $addComision: function(obj) {
+                return ProductoRestangular.all(url + '/' + this.id + '/comisiones').post(obj);
+            },
+            $getComisiones: function(){
+                return ProductoRestangular.all(url + '/' + this.id + '/comisiones').getList();
             }
         };
 
